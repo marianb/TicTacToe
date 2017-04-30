@@ -22,12 +22,15 @@ public class Server {
                 //Accepts client's request for a connection
                 Socket connect = theServer.accept();
                 //Reads input from socket
-                BufferedReader in = new BufferedReader
+                BufferedReader serverInput = new BufferedReader
                 (new InputStreamReader(connect.getInputStream()));
+                if(serverInput.equals("l")){
+                    
+                }
                 //GameState g = new GameState();
             
                 //Output stream of data from socket
-                DataOutputStream out = new DataOutputStream(connect.getOutputStream());
+                DataOutputStream serverOutput = new DataOutputStream(connect.getOutputStream());
             } 
         }catch(IOException e){
                 
