@@ -26,12 +26,19 @@ public class Server {
 //        
         
         try{
+            int threadCount = 0;
             while(true){
                 //Creates a new game
                 GameState g = new GameState();
                 
                 //Accepts client's request for a connection
+                
                 Socket connect = theServer.accept();
+                
+                threadImp t1 = new threadImp(" thread" + threadCount);
+                t1.start();
+                threadCount++;
+                
                 //Reads input from socket
                 BufferedReader serverInput = new BufferedReader
                 (new InputStreamReader(connect.getInputStream()));
@@ -49,13 +56,38 @@ public class Server {
         }
     }
     
-    public void execute()
+//    public void execute()
+//    {
+//        for (int i = 0; i < players.length; i++)
+//        {
+//            
+//        }    
+}
+
+// implementation of thread in accordance with
+    //https://www.tutorialspoint.com/java/java_multithreading.htm
+    
+    class threadImp implements Runnable{
+        private Thread t;
+        private String threadName;
+    threadImp(String name)
     {
-        for (int i = 0; i < players.length; i++)
+        threadName = name;
+        System.out.println("creating " + threadName);
+    }
+    public void run()
+    {
+        System.out.println("thread " + threadName + "is running" + t.getState());
+    }
+    public void start()
+    {
+        System.out.println("Starting " + threadName);
+        if (t == null)
         {
-            
+            t = new Thread (this, threadName);
+            t.start();
         }
     }
     
-}
-
+    
+    }

@@ -52,7 +52,7 @@ public class TicTacToeGame {
             if(command.trim().toLowerCase().equals("p")){
                     System.out.println("Enter the position number of the space you would like to make a move in [1,9]");
                     int place= w.nextInt();
-                    while((place>9&&place<1)||!isLegal(board, place)){
+                    while((place>9||place<1)||!isLegal(board, place)){
                         System.out.println("Illegal move. Please enter a number of an empty spot.");
                         place=w.nextInt();
                     }
