@@ -11,12 +11,20 @@ package cse310.project;
  */
 import java.io.*;
 import java.net.*;
+
 public class Server {
     public static void main(String[]args) throws IOException{               
         int portNumber = 2000;
         int uniquePlayerID = 0;
+        boolean listening = true;
         //creates our server!
         ServerSocket theServer = new ServerSocket(portNumber); 
+//            while(listening)
+//            {
+//                new serverThread(ServerSocket.accept()).start();
+//            }
+//        
+        
         try{
             while(true){
                 //Accepts client's request for a connection
@@ -36,5 +44,14 @@ public class Server {
                 
         }
     }
+    
+    public void execute()
+    {
+        for (int i = 0; i < players.length; i++)
+        {
+            
+        }
+    }
+    
 }
 

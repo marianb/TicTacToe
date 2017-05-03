@@ -15,6 +15,7 @@ public class Client {
     public static void main(String[] args) throws IOException {
         int serverPort = 2000;
         Socket theClient = new Socket(args[0], serverPort);
+        
         String command;
         try{
             while(true){
@@ -34,12 +35,17 @@ public class Client {
                     //TAKES ARG: username, sends username to server
                     //When server getslogin name, the server records the player and sets them to AVILABLE
                 }if(command.trim().toLowerCase().equals("p")){
+                    int i = 0;
+                    while(i == 0)
+                    {
                     System.out.print("Enter the position number of the space you would like to make a move in [1,9]");
                     int place = userInput.read();
                     if(place<10||place>0){
                         sendToServer.writeInt(place);
+                        i++;
                     }else{ //Does this work tho
                         System.out.print("Invalid movement. Please enter an integer [1,9]");
+                    }
                     }
                     //takes argument int 1-9, sends to server
                     //server checks if its player's turn/is legal move
