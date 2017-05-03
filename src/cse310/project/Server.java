@@ -27,6 +27,9 @@ public class Server {
         
         try{
             while(true){
+                //Creates a new game
+                GameState g = new GameState();
+                
                 //Accepts client's request for a connection
                 Socket connect = theServer.accept();
                 //Reads input from socket
@@ -38,7 +41,8 @@ public class Server {
                 //GameState g = new GameState();
             
                 //Output stream of data from socket
-                DataOutputStream serverOutput = new DataOutputStream(connect.getOutputStream());
+                DataOutputStream serverOutput = 
+                    new DataOutputStream(connect.getOutputStream());
             } 
         }catch(IOException e){
                 
