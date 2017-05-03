@@ -17,12 +17,16 @@ public class GameState {
     };
 
     int nextTurn;
+    int numberOfPlayers; 
     
-    boolean player1 = true;
-    boolean player2 = false;
+    boolean playerX = false;
+    boolean player0 = false;
+    
+    boolean xIsBusy = false;
+    boolean oIsBusy = false;
     
     public void setPlayer2(boolean b){
-        player2 = b;
+        player0 = b;
     }
     
     public String[][] getBoard() {
